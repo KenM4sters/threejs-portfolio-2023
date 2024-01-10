@@ -12,7 +12,7 @@ export default class Particles {
         this.sizes = this.experience.sizes
 
         this.params = {}
-        this.params.count = Math.pow(2, 12)
+        this.params.count = Math.pow(2, 16)
         this.params.perimeterCount = Math.sqrt(this.params.count)
         this.params.perimeterLength = 100
         this.params.size = 0.005
@@ -45,7 +45,7 @@ export default class Particles {
             positions[i3 + 1] = 0
             positions[i3 + 2] = z_displacement
 
-            console.log(positions[i])
+            // console.log(positions[i])
 
             if(rowCounter % this.params.perimeterCount == 0) {
                 z_displacement -= this.params.perimeterLength / this.params.perimeterCount
