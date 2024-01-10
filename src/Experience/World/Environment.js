@@ -1,14 +1,14 @@
-import Experience from "../Experience";
+import Experience from "../Experience"
 import * as THREE from "three"
 
 
 export default class Environment {
     constructor() {
 
-        this.experience = new Experience();
-        this.scene = this.experience.scene;
-        this.resources = this.experience.resources;
-        this.debug = this.experience.debug;
+        this.experience = new Experience()
+        this.scene = this.experience.scene
+        this.resources = this.experience.resources
+        this.debug = this.experience.debug
 
         // Debug
         if(this.debug.active)
@@ -16,8 +16,8 @@ export default class Environment {
             this.debugFolder = this.debug.ui.addFolder('environment')
         }
 
-        this.setSunLight();
-        this.setEnvironmentMap();
+        this.setSunLight()
+        this.setEnvironmentMap()
     }
 
     setSunLight() {
@@ -64,12 +64,12 @@ export default class Environment {
     }
 
     setEnvironmentMap() {
-        this.environmentMap = {};
-        this.environmentMap.intensity = 0.4;
-        this.environmentMap.texture = this.resources.items.environmentMapTexture;
-        this.environmentMap.texture.colorSpace = THREE.SRGBColorSpace;
+        this.environmentMap = {}
+        this.environmentMap.intensity = 0.4
+        this.environmentMap.texture = this.resources.items.environmentMapTexture
+        this.environmentMap.texture.colorSpace = THREE.SRGBColorSpace
 
-        this.scene.environment = this.environmentMap.texture;
+        this.scene.environment = this.environmentMap.texture
 
         this.environmentMap.updateMaterials = () =>
         {

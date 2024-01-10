@@ -1,30 +1,30 @@
-import EventEmitter from "./EventEmitter";
-import * as THREE from "three";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+import EventEmitter from "./EventEmitter"
+import * as THREE from "three"
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader"
 
 
 export default class Resources extends EventEmitter {
     constructor(sources) {
-        super();
+        super()
         
         // Options
-        this.sources = sources;
+        this.sources = sources
 
         // Setup
-        this.items = {};
-        this.toLoad = this.sources.length;
-        this.loaded = 0;
+        this.items = {}
+        this.toLoad = this.sources.length
+        this.loaded = 0
 
-        this.setLoaders();
-        this.startLoading();
+        this.setLoaders()
+        this.startLoading()
 
     }
 
     setLoaders() {
-        this.loaders = {};
-        this.loaders.gltfLoader = new GLTFLoader();
-        this.loaders.textureLoader = new THREE.TextureLoader();
-        this.loaders.cubeTextureLoader = new THREE.CubeTextureLoader();
+        this.loaders = {}
+        this.loaders.gltfLoader = new GLTFLoader()
+        this.loaders.textureLoader = new THREE.TextureLoader()
+        this.loaders.cubeTextureLoader = new THREE.CubeTextureLoader()
 
     }
 
@@ -59,8 +59,8 @@ export default class Resources extends EventEmitter {
     }
 
     sourceLoaded(source, file) {
-        this.items[source.name] = file;
-        this.loaded += 1;
+        this.items[source.name] = file
+        this.loaded += 1
 
         if(this.loaded == this.toLoad) {
             this.trigger('ready')

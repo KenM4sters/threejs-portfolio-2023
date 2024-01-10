@@ -16,7 +16,7 @@ export default class Renderer
         this.usePostprocess = true;
 
         this.setInstance()
-        this.setPostProcess();
+        this.setPostProcess()
     }
 
     setInstance()
