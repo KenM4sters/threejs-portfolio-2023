@@ -1,5 +1,4 @@
 
-
 void main() {
 
     float strength = distance(gl_PointCoord, vec2(0.5));

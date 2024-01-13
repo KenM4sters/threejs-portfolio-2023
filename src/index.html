@@ -8,6 +8,31 @@
 </head>
 <body>
     <canvas class="webgl"></canvas>
+    <main class="h-[300vh] relative">
+        <div class="h-[100vh] w-[100%] flex flex-col gap-y-5 justify-center items-center ">
+            <h1 class="text-white text-[2rem]"> Welcome</h1>
+            <div class="flex justify-center items-center gap-x-5">
+                <a href="./"><i class="fa-brands fa-square-github fa-2xl" style="color: #0042aa;"></i></a>
+                <a href="./"><i class="fa-brands fa-square-github fa-2xl" style="color: #0042aa;"></i></a>
+                <a href="./"><i class="fa-brands fa-square-github fa-2xl" style="color: #0042aa;"></i></a>
+            </div>
+        </div>
+        <div class=" h-[100vh] flex flex-col justify-center gap-y-[20vh] ml-[10vw]  ">
+            <h1 id="about-me-title" class="text-[5rem] fill-transparent ">About me</h1>
+            <p id="about-me-description" class="text-[1.4rem] ml-[5vw] border-l-2 border-cyan-700 px-8 py-12">
+                <strong>Hi!</strong> 
+                My name is <strong >Samuel Brookman</strong>, and I'm an aspiring software developer  
+                looking to implement<br> my skills into the real world.
+                I have a passion for <strong class="text-gray-300">low level programming</strong> in <strong class="text-gray-300">C++</strong> and enjoy<br>
+                exploring the fields of computer graphics and <strong class="text-gray-300">machine learning</strong>. 
+            </p>
+            <div class=" ml-[10vw] relative top-[-20vh]">
+                <a id="contact" href="mailto: sam.brookman414@hotmail.com" class=" absolute italic "> Contact </a>
+                <a id="resume" href="/" download="/CV.pdf" class=" absolute italic ml-[20vw]"> Resume </a>
+                <a id="github" href="https://github.com/KenM4sters" target="_blank" class=" absolute italic ml-[40vw]"> Github </a>
+            </div>
+    </main>
+    <script src="https://kit.fontawesome.com/e0f31755b4.js" crossorigin="anonymous"></script>
     <script type="module" src="./script.js"></script>
 </body>
 </html>
