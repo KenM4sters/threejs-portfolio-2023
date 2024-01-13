@@ -11,6 +11,7 @@ export default class Particles{
         this.time = this.experience.time
         this.renderer = this.experience.renderer
         this.sizes = this.experience.sizes
+        this.resources = this.experience.resources
 
         this.params = {}
         this.params.count = Math.pow(2, 14)
@@ -27,6 +28,9 @@ export default class Particles{
     }
 
     generateParticles() {
+
+        // add model to scene
+        this.dnaModel = this.resources.items.DNAModel
         
         if(this.points !== null) {
             this.geometry.dispose()

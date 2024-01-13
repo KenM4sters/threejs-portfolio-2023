@@ -13,5 +13,11 @@ export default [
         ]
     },
 
+    {
+        namne: 'DNAModel',
+        type: 'gltfModel',
+        path: 'models/DNA_updated.gltf'
+    }
+
 
 ]
