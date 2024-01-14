@@ -32,7 +32,7 @@ export default class Resources extends EventEmitter {
         // Load each source
         for(const source of this.sources) {
 
-            if(source.type == 'gltfModel') {
+            if(source.type === 'gltfModel') {
                 this.loaders.gltfLoader.load(
                     source.path, (file) => {
                         this.sourceLoaded(source, file)
@@ -40,7 +40,7 @@ export default class Resources extends EventEmitter {
                 )
             }
 
-            else if(source.type == 'teture') {
+            else if(source.type === 'texture') {
                 this.loaders.textureLoader.load(
                     source.path, (file) => {
                         this.sourceLoaded(source, file)
@@ -48,7 +48,7 @@ export default class Resources extends EventEmitter {
                 )
             }
 
-            else if(source.type == 'cubeTexture') {
+            else if(source.type === 'cubeTexture') {
                 this.loaders.cubeTextureLoader.load(
                     source.path, (file) => {
                         this.sourceLoaded(source, file)

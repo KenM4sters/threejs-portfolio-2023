@@ -48,9 +48,12 @@ export default class Experience
         })
 
         // Time tick event
-        this.time.on('tick', () =>
-        {
-            this.update()
+        this.resources.on('ready', () => {
+
+            this.time.on('tick', () =>
+            {
+                this.update()
+            })
         })
     }
 
@@ -65,8 +68,6 @@ export default class Experience
         // this.camera.update()
         this.renderer.update()
         this.world.update()
-        // this.listener.listenToMouseMove()
-        // this.listener.listenToScroll()
     }
 
     destroy() {

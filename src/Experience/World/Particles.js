@@ -12,25 +12,24 @@ export default class Particles{
         this.renderer = this.experience.renderer
         this.sizes = this.experience.sizes
         this.resources = this.experience.resources
+        this.resource = this.resources.items.horse
 
         this.params = {}
         this.params.count = Math.pow(2, 14)
         this.params.perimeterCount = Math.sqrt(this.params.count)
         this.params.perimeterLength = 100
-        this.params.size = 0.005
+        this.params.size = 0.01
         this.params.color = '#ffffff'
 
         this.geometry = null
         this.material = null
         this.points = null
-
+        
         this.generateParticles()
     }
 
     generateParticles() {
 
-        // add model to scene
-        this.dnaModel = this.resources.items.DNAModel
         
         if(this.points !== null) {
             this.geometry.dispose()
@@ -38,8 +37,33 @@ export default class Particles{
             this.scene.remove(this.points)
         }
 
+        this.model = this.resource.scene
         this.geometry = new THREE.BufferGeometry()
         const positions = new Float32Array(this.params.count * 3)
+
+        this.model.children[0].geometry.translate(120, -100, 0)
+        console.log(this.model.children[0].geometry)
+        this.model.children[0].geometry.rotateY(-45)
+        this.model.children[0].geometry.scale(0.5, 0.5, 0.5)
+        // this.scene.add(this.model)
+
+        console.log(this.model);
+
+        if(this.model) {
+            this.model.traverse((child) => {
+                if(child instanceof THREE.Mesh) {
+                    const vertices = child.geometry.attributes.position
+                    console.log(vertices.count);
+                    for(let i = 0; i < vertices.count; i++) {
+                        let i3 = i * 3
+                        positions[i3 + 0] = vertices.getX(i)
+                        positions[i3 + 1] = vertices.getY(i)
+                        positions[i3 + 2] = vertices.getZ(i)
+                    }
+                }
+            })
+        }
+
 
         // let rowCounter = 0
         // let z_displacement = (this.params.perimeterLength / 2)
@@ -81,7 +105,7 @@ export default class Particles{
             uniforms:
             {
                 uTime: { value: 0 },
-                uSize: { value: 60 * this.sizes.pixelRatio }
+                uSize: { value: 400 * this.sizes.pixelRatio }
             },    
             vertexShader: particlesVertexShader,
             fragmentShader: particlesFragmentShader

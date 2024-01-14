@@ -1,9 +1,12 @@
 uniform float uTime;
 uniform float uSize;
+
+// attribute vec3 aPosition;
+
 void main() {
 
     vec4 modelPosition = modelMatrix * vec4(position, 1.0);
-    modelPosition.y += sin(modelPosition.x * 0.1 * uTime) * cos(modelPosition.z * 0.1 * uTime);
+    // modelPosition.y += sin(modelPosition.x * 0.1 * uTime) * cos(modelPosition.z * 0.1 * uTime);
     vec4 viewPosition = viewMatrix * modelPosition;
     vec4 projectedPosition = projectionMatrix * viewPosition;
 

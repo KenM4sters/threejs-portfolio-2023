@@ -11,12 +11,12 @@ export default class World
         this.experience = new Experience()
         this.scene = this.experience.scene
         this.resources = this.experience.resources
-        this.particles = new Particles()
         // this.simulation = new Simulation()
 
         this.resources.on('ready', () => {
             console.log('resources are ready')
             // Setup
+            this.particles = new Particles()
             this.environment = new Environment()
         })
 
