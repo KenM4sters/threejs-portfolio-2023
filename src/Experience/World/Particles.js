@@ -25,7 +25,7 @@ export default class Particles{
         this.material = null
         this.points = null
         
-        this.generateParticles()
+        // this.generateParticles()
     }
 
     generateParticles() {
@@ -42,7 +42,6 @@ export default class Particles{
         const positions = new Float32Array(this.params.count * 3)
 
         this.model.children[0].geometry.translate(120, -100, 0)
-        console.log(this.model.children[0].geometry)
         this.model.children[0].geometry.rotateY(-45)
         this.model.children[0].geometry.scale(0.5, 0.5, 0.5)
         // this.scene.add(this.model)
@@ -53,7 +52,6 @@ export default class Particles{
             this.model.traverse((child) => {
                 if(child instanceof THREE.Mesh) {
                     const vertices = child.geometry.attributes.position
-                    console.log(vertices.count);
                     for(let i = 0; i < vertices.count; i++) {
                         let i3 = i * 3
                         positions[i3 + 0] = vertices.getX(i)
@@ -117,6 +115,6 @@ export default class Particles{
     }
 
     update() {
-        this.material.uniforms.uTime.value = this.time.elapsed * 0.0001
+        // this.material.uniforms.uTime.value = this.time.elapsed * 0.0001
     }
 }

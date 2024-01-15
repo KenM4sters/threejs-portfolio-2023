@@ -13,7 +13,7 @@ export default class Renderer
         this.sizes = this.experience.sizes
         this.scene = this.experience.scene
         this.camera = this.experience.camera
-        this.usePostprocess = true;
+        this.usePostprocess = false;
 
         this.setInstance()
         this.setPostProcess()
@@ -129,11 +129,11 @@ void main() {
 
     update()
     {
-        if (this.usePostprocess){
-            this.postProcess.composer.render()
-        }else{
-            this.instance.render(this.scene, this.camera.instance)
-        }
+        // if (this.usePostprocess){
+        //     this.postProcess.composer.render()
+        // }else{
+        //     this.instance.render(this.scene, this.camera.instance)
+        // }
     }
 
 }
