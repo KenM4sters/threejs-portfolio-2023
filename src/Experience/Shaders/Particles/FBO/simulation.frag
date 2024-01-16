@@ -3,6 +3,7 @@ varying vec2 vUv;
 uniform sampler2D uPositions;
 uniform sampler2D uInfo;
 uniform float uTime;
+uniform vec2 uMouse;
 
 #define PI 3.1415926538
 
@@ -121,7 +122,7 @@ void main() {
     vec4 pos = texture2D(uPositions, vUv);
     vec4 info = texture2D(uInfo, vUv);
 
-    vec2 mouse = vec2(sin(-uTime), cos(-uTime));
+    vec2 mouse = uMouse;
 
     float radius = length(pos.xy);
     float circularForce = 1.0 - smoothstep(0.3, 1.4, abs(pos.x - radius));

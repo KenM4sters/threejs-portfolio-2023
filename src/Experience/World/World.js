@@ -3,6 +3,7 @@ import Environment from './Environment.js'
 import Page from './Page.js'
 import Particles from './Particles.js'
 import Simulation from './Simulation.js'
+import StarDome from './StarDome.js'
 
 
 export default class World
@@ -20,6 +21,7 @@ export default class World
             this.page = new Page()
             this.particles = new Particles()
             this.environment = new Environment()
+            this.starDome = new StarDome()
         })
 
     }

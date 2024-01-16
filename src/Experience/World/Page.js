@@ -1,9 +1,6 @@
 import * as THREE from 'three'
 import Experience from '../Experience.js'
 
-// import * as BufferGeometryUtils from "three/examples/jsm/utils/BufferGeometryUtils.js";
-// import gsap from "gsap";
-
 import simVertex from '../Shaders/Particles/FBO/simulation.vert?raw';
 import simFragment from '../Shaders/Particles/FBO/simulation.frag?raw';
 
@@ -18,16 +15,35 @@ export default class Page {
         this.time = this.experience.time
         this.camera = this.experience.camera.instance
         this.renderer = this.experience.renderer.instance
-        this.resources = this.experience.resources
         this.sizes = this.experience.sizes
-        this.timeline = this.experience.timeline;
-        this.isMobile = this.experience.isMobile
-        this.cursor = this.experience.cursor
         this.width = 512
         this.height = 512
+        this.size = 512
+        this.raycaster = new THREE.Raycaster()
+        this.pointer = new THREE.Vector2()
 
         this.setFBOParticles()
         this.createParticles()
+        this.trackMousePos()
+    }
+
+    trackMousePos() {
+        this.dummy = new THREE.Mesh(
+            new THREE.PlaneGeometry(100, 100),
+            new THREE.MeshBasicMaterial({color: 'red'})
+        )
+        
+        document.addEventListener('pointermove', (e) => {
+            this.pointer.x = (e.clientX / window.innerWidth) * 2 - 1
+            this.pointer.y = -((e.clientY / window.innerHeight) * 2 - 1)
+
+            this.raycaster.setFromCamera(this.pointer, this.camera)
+            let intersects = this.raycaster.intersectObject(this.dummy)
+            if(intersects.length > 0) {
+                let {x, y} = intersects[0].point
+                this.fboMaterial.uniforms.uMouse.value = new THREE.Vector2(x, y)
+            }
+        })
     }
 
     createParticles() {
@@ -52,19 +68,20 @@ export default class Page {
             }
         }
 
+        console.log(positions.length / 3);
+
         geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3))
         geometry.setAttribute('uv', new THREE.BufferAttribute(uv, 2))
 
         this.particleMaterial = new THREE.ShaderMaterial( {
             uniforms: {
                 uTime: { value: 0},
-                uSize: { value: 5 * this.renderer.getPixelRatio()},
+                uSize: { value: 10 * this.renderer.getPixelRatio()},
                 uPositions: { value: null}
             },
             vertexShader: renderVertex,
             fragmentShader: renderFragment,
-            transparent: true,
-            side:THREE.DoubleSide,
+            transparent: false,
             // depthWrite: false,
             // depthTest: false,
             blending:THREE.AdditiveBlending
@@ -103,8 +120,6 @@ export default class Page {
         this.fbo1 = this.createTarget()
         this.geometry = new THREE.PlaneGeometry(2, 2)
 
-        
-        this.size = 512
         this.data = new Float32Array(this.size * this.size * 4)
 
         for(let i = 0; i < this.size; i++) {
@@ -135,7 +150,8 @@ export default class Page {
             uniforms: {
                 uPositions: {value: this.fboTexture },
                 uInfo: {value: null},
-                uTime: {value: 0}
+                uTime: {value: 0},
+                uMouse: {value: new THREE.Vector2(0, 0)}
             },
             vertexShader: simVertex,
             fragmentShader:  simFragment
@@ -171,7 +187,6 @@ export default class Page {
         
 
         this.fboMesh = new THREE.Mesh(this.geometry, this.fboMaterial)
-        console.log(this.fboMesh);
         this.fboScene.add(this.fboMesh)
 
         this.renderer.setRenderTarget(this.fbo)

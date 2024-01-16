@@ -12,7 +12,7 @@ void main() {
 
     float angle = atan(pos.y, pos.x);
 
-    vColor = vec4(0.7 + 0.45*sin(angle + uTime * 10.0));
+    vColor = vec4(0.3, 0.5, 1.0, 0.7 + 0.45*sin(angle + uTime * 10.0));
 
     vec4 modelPosition = modelMatrix * vec4(pos.xyz, 1.0);
     vec4 viewPosition = viewMatrix * modelPosition;

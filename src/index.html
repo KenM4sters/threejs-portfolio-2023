@@ -8,30 +8,64 @@
 </head>
 <body>
     <canvas class="webgl"></canvas>
-    <main class="h-[300vh] relative">
+    <main class="h-[400vh] relative">
         <div class="h-[100vh] w-[100%] flex flex-col gap-y-5 justify-center items-center ">
             <h1 class="text-white text-[2rem]"> Welcome</h1>
             <div class="flex justify-center items-center gap-x-5">
-                <a href="./"><i class="fa-brands fa-square-github fa-2xl" style="color: #0042aa;"></i></a>
+                <a href="https://github.com/KenM4sters" target="_blank"><i class="fa-brands fa-square-github fa-2xl" style="color: #0042aa;"></i></a>
                 <a href="./"><i class="fa-regular fa-newspaper fa-2xl" style="color: #ffaa00;"></i></a>
                 <a href="mailto: sam.brookman414@hotmail.com"><i class="fa-solid fa-envelope fa-2xl" style="color: #3cb59b;"></i></i></a>
             </div>
         </div>
         <div class=" h-[100vh] flex flex-col justify-center gap-y-[20vh] ml-[10vw]  ">
             <h1 id="about-me-title" class="text-[5rem] fill-transparent ">About me</h1>
-            <p id="about-me-description" class="text-[1.4rem] ml-[5vw] border-l-2 border-cyan-700 px-8 py-12">
+            <p id="about-me-description" class="text-[1.6rem] ml-[5vw] border-l-2 border-cyan-700 px-8 py-12">
                 <strong>Hi!</strong> 
                 My name is <strong >Samuel Brookman</strong>, and I'm an aspiring software developer  
                 looking to implement<br> my skills into the real world.
                 I have a passion for <strong class="text-gray-300">low level programming</strong> in <strong class="text-gray-300">C++</strong> and enjoy<br>
                 exploring the fields of computer graphics and <strong class="text-gray-300">machine learning</strong>. 
             </p>
-            <div class=" ml-[10vw] relative top-[-20vh]">
-                <a id="contact" href="mailto: sam.brookman414@hotmail.com" class=" absolute italic "> Contact </a>
-                <a id="resume" href="/" download="/CV.pdf" class=" absolute italic ml-[20vw]"> Resume </a>
-                <a id="github" href="https://github.com/KenM4sters" target="_blank" class=" absolute italic ml-[40vw]"> Github </a>
+        </div>
+        <div class="w-[100%] flex flex-col gap-y-10 justify-center items-center">
+            <h1 class="text-[6rem] text-white">My Projects</h1>
+            <ul class="text-center text-[3rem] text-white">
+                <li><a target="_blank" href="https://github.com/KenM4sters/opengl-game"> 2D Game </a></li>
+                <li><a target="_blank" href="https://github.com/KenM4sters/game-engine-vulkan"> 3D Game Engine </a></li>
+                <li><a target="_blank" href="https://github.com/KenM4sters/actix-web-postgresql-api"> REST API </a></li>
+                <li><a target="_blank" href="https://github.com/KenM4sters/svelte-kit-blog"> Blog </a></li>
+                <li><a target="_blank" href="https://github.com/KenM4sters/gravity-simulator"> Gravity Simluator </a></li>
+                <li><a target="_blank" href="https://github.com/KenM4sters/threejs-portfolio"> Portfolio </a></li>
+            </ul>
+        </div>
+        <div class="w-[100%] mt-[30vh] flex flex-col gap-y-10 justify-center items-center">
+            <div id="skills-box" class="flex flex-col justify-center items-center gap-y-[5vw] w-[50vw] h-[60vh] rounded-[1rem] ">
+                <h1 class="text-gray-200 text-[3rem]">Skills</h1>
+                <ul class="flex justify-center flex-wrap gap-x-8 gap-y-8 w-[30vw] ">
+                    <li class=" hover:text-gray-50 text-black hover:bg-slate-500 rounded-md px-4 py-1 bg-gray-300 transition-all flex justify-center items-center  border-gray-800 shadow-sm shadow-black cursor-default "> C++ </li>
+                    <li class=" hover:text-gray-50 text-black hover:bg-slate-300 rounded-md px-4 py-1 bg-gray-300 transition-all flex justify-center items-center  border-gray-800 shadow-sm shadow-black cursor-default "> C </li>
+                    <li class=" hover:text-gray-50 text-black hover:bg-teal-500 rounded-md px-4 py-1 bg-gray-300 transition-all flex justify-center items-center  border-gray-800 shadow-sm shadow-black cursor-default "> Python </li>
+                    <li class=" hover:text-gray-50 text-black hover:bg-red-500 rounded-md px-4 py-1 bg-gray-300 transition-all flex justify-center items-center  border-gray-800 shadow-sm shadow-black cursor-default "> Typescript </li>
+                    <li class=" hover:text-gray-50 text-black hover:bg-yellow-500 rounded-md px-4 py-1 bg-gray-300 transition-all flex justify-center items-center  border-gray-800 shadow-sm shadow-black cursor-default "> Javascript </li>
+                    <li class=" hover:text-gray-50 text-black hover:bg-indigo-300 rounded-md px-4 py-1 bg-gray-300 transition-all flex justify-center items-center  border-gray-800 shadow-sm shadow-black cursor-default "> Arm64 ASM </li>
+                    <li class=" hover:text-gray-50 text-black hover:bg-orange-300 rounded-md px-4 py-1 bg-gray-300 transition-all flex justify-center items-center  border-gray-800 shadow-sm shadow-black cursor-default "> Rust </li>
+                    <li class=" hover:text-gray-50 text-black hover:bg-red-300 rounded-md px-4 py-1 bg-gray-300 transition-all flex justify-center items-center  border-gray-800 shadow-sm shadow-black cursor-default "> Vulkan </li>
+                    <li class=" hover:text-gray-50 text-black hover:bg-teal-300 rounded-md px-4 py-1 bg-gray-300 transition-all flex justify-center items-center  border-gray-800 shadow-sm shadow-black cursor-default "> OpenGL </li>
+                    <li class=" hover:text-gray-50 text-black hover:bg-slate-500 rounded-md px-4 py-1 bg-gray-300 transition-all flex justify-center items-center  border-gray-800 shadow-sm shadow-black cursor-default "> Git </li>
+                    <li class=" hover:text-gray-50 text-black hover:bg-purple-500 rounded-md px-4 py-1 bg-gray-300 transition-all flex justify-center items-center  border-gray-800 shadow-sm shadow-black cursor-default "> threeJS </li>
+                    <li class=" hover:text-gray-50 text-black hover:bg-amber-500 rounded-md px-4 py-1 bg-gray-300 transition-all flex justify-center items-center  border-gray-800 shadow-sm shadow-black cursor-default "> PyTorch </li>
+                    <li class=" hover:text-gray-50 text-black hover:bg-sky-300 rounded-md px-4 py-1 bg-gray-300 transition-all flex justify-center items-center  border-gray-800 shadow-sm shadow-black cursor-default "> Linux </li>
+                    <li class=" hover:text-gray-50 text-black hover:bg-yellow-300 rounded-md px-4 py-1 bg-gray-300 transition-all flex justify-center items-center  border-gray-800 shadow-sm shadow-black cursor-default "> Blender </li>
+                    <li class=" hover:text-gray-50 text-black hover:bg-blue-300 rounded-md px-4 py-1 bg-gray-300 transition-all flex justify-center items-center  border-gray-800 shadow-sm shadow-black cursor-default "> Docker </li>
+                </ul>
             </div>
+        </div>  
     </main>
+    <!-- <footer class="w-[100%] h-[40vh] bg-black relative">
+        <div>
+            <h1 class="text-[6rem] text-white">Hello world</h1>
+        </div>
+    </footer> -->
     <script src="https://kit.fontawesome.com/e0f31755b4.js" crossorigin="anonymous"></script>
     <script type="module" src="./script.js"></script>
 </body>

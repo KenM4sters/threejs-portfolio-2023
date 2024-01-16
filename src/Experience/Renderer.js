@@ -13,6 +13,7 @@ export default class Renderer
         this.sizes = this.experience.sizes
         this.scene = this.experience.scene
         this.camera = this.experience.camera
+        this.postProcess = {}
         this.usePostprocess = false;
 
         this.setInstance()
@@ -21,7 +22,7 @@ export default class Renderer
 
     setInstance()
     {
-        this.clearColor = '#010101'
+        this.clearColor = '#111111'
 
         this.instance = new THREE.WebGLRenderer({
             canvas: this.canvas,
@@ -49,7 +50,6 @@ export default class Renderer
     }
 
     setPostProcess() {
-        this.postProcess = {}
 
         /**
          * Passes
@@ -129,7 +129,7 @@ void main() {
 
     update()
     {
-        // if (this.usePostprocess){
+        // if(this.usePostprocess){
         //     this.postProcess.composer.render()
         // }else{
         //     this.instance.render(this.scene, this.camera.instance)
