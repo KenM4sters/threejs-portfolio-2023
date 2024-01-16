@@ -77,7 +77,7 @@ export default class Page {
             uniforms: {
                 uTime: { value: 0},
                 uSize: { value: 10 * this.renderer.getPixelRatio()},
-                uPositions: { value: null}
+                uPositions: { value: this.fboTexture}
             },
             vertexShader: renderVertex,
             fragmentShader: renderFragment,
@@ -87,7 +87,6 @@ export default class Page {
             blending:THREE.AdditiveBlending
         } );
 
-        this.particleMaterial.uniforms.uPositions.value = this.fboTexture
         this.points = new THREE.Points(geometry, this.particleMaterial)
         this.scene.add(this.points)
     }
@@ -144,7 +143,7 @@ export default class Page {
 
         this.fboTexture.magFilter = THREE.NearestFilter
         this.fboTexture.minFilter = THREE.NearestFilter
-        this.fboTexture.needsUpdate = true;
+        this.fboTexture.needsUpdate = true; 
 
         this.fboMaterial = new THREE.ShaderMaterial({
             uniforms: {
@@ -182,9 +181,8 @@ export default class Page {
         this.info.magFilter = THREE.NearestFilter
         this.info.minFilter = THREE.NearestFilter
         this.info.needsUpdate = true;
-        this.fboMaterial.uniforms.uInfo.value = this.info
-
         
+        this.fboMaterial.uniforms.uInfo.value = this.info
 
         this.fboMesh = new THREE.Mesh(this.geometry, this.fboMaterial)
         this.fboScene.add(this.fboMesh)
