@@ -139,6 +139,7 @@ void main() {
     float dist = length(pos.xy - mouse);
     vec2 dir = normalize(pos.xy - mouse);
     pos.xy += dir * smoothstep(0.3, 0.0, dist);
+    // pos.z = sin(pos.x);
 
     gl_FragColor = pos;
 }

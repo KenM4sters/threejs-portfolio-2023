@@ -50,6 +50,6 @@ export default class StarDome {
     }
 
     update() {
-        // this.material.uniforms.uTime.value = this.time.elapsed * 0.0001
+        this.material.uniforms.uTime.value = this.time.elapsed * 0.0001
     }
 }

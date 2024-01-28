@@ -29,6 +29,7 @@ export default class World
     update() {
         this.page.update()
         this.particles.update()
+        this.starDome.update()
     }
 
 }

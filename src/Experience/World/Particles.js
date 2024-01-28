@@ -46,8 +46,6 @@ export default class Particles{
         this.model.children[0].geometry.scale(0.5, 0.5, 0.5)
         // this.scene.add(this.model)
 
-        console.log(this.model);
-
         if(this.model) {
             this.model.traverse((child) => {
                 if(child instanceof THREE.Mesh) {

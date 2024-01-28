@@ -61,14 +61,14 @@ export default class Page {
 
                 positions[i3 + 0] = Math.random()
                 positions[i3 + 1] = Math.random()
-                positions[i3 + 2] = 1.0
+                positions[i3 + 2] = Math.random()
 
                 uv[i2 + 0] = i / this.size
                 uv[i2 + 1] = j / this.size
             }
         }
 
-        console.log(positions.length / 3);
+        // console.log(positions.length / 3);
 
         geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3))
         geometry.setAttribute('uv', new THREE.BufferAttribute(uv, 2))
@@ -126,11 +126,11 @@ export default class Page {
                 let index = (i + j * this.size) * 4
                 let theta = Math.random() * Math.PI * 2
                 let r = 0.5 + 0.5*Math.random()
-                this.data[index + 0] = r*Math.cos(theta)
-                this.data[index + 1] = r*Math.sin(theta)
-                this.data[index + 2] = 1.0
-                this.data[index + 3] = 1.0
-            }
+                this.data[index + 0] = r*Math.cos(theta) 
+                this.data[index + 1] = r*Math.sin(theta) 
+                this.data[index + 2] = 1.0 
+                this.data[index + 3] = 1.0 
+            }   
         }
 
         this.fboTexture = new THREE.DataTexture(
@@ -149,12 +149,14 @@ export default class Page {
             uniforms: {
                 uPositions: {value: this.fboTexture },
                 uInfo: {value: null},
-                uTime: {value: 0},
+                uTime: {value: 0},  
                 uMouse: {value: new THREE.Vector2(0, 0)}
             },
             vertexShader: simVertex,
             fragmentShader:  simFragment
         });
+
+        // console.log(this.fboTexture);
 
         // Second Texture
 
